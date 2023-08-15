@@ -4,87 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity3">
 
     <ImageView
-        android:id="@+id/bearIcon"
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="67dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bear" />
-
-    <TextView
-        android:id="@+id/cashNest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cash Nest"
-        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintVertical_bias="0.15"
+        app:srcCompat="@drawable/card" />
 
     <TextView
-        android:id="@+id/welcome"
+        android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="김땡땡 님 어서 오세요 😊"
-        android:textSize="24sp"
+        android:text="￦ 1,000"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.435" />
+        app:layout_constraintVertical_bias="0.145" />
 
-    <ImageView
-        android:id="@+id/background"
-        android:layout_width="420dp"
-        android:layout_height="360dp"
-        android:layout_marginTop="390dp"
+    <TextView
+        android:id="@+id/cardNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="•‎•‎•‎• •‎•‎•‎• •‎•‎•‎• 1234"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background" />
+        app:layout_constraintVertical_bias="0.307" />
+
+    <TextView
+        android:id="@+id/savingAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="적금 통장"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
 
     <ImageButton
-        android:id="@+id/button1"
+        android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665"
-        app:srcCompat="@drawable/check_consumption_patterns"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8"
-        app:srcCompat="@drawable/check_savings_account"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageView
-        android:id="@+id/starFriends"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935"
-        app:srcCompat="@drawable/star_friends" />
+        app:layout_constraintVertical_bias="0.05"
+        app:srcCompat="@drawable/baseline_arrow_back_ios_new_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
