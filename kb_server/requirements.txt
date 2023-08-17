@@ -1,0 +1,10 @@
+mxnet==1.9.1
+gluonnlp==0.9.1
+tqdm==4.66.1
+pandas==1.5.3
+sentencepiece==0.1.99
+transformers==4.31.0
+torch==1.10.1
+'git+https://github.com/SKTBrain/KoBERT.git#egg=kobert_tokenizer&subdirectory=kobert_hf'
+Flask
+Flask-RESTful
