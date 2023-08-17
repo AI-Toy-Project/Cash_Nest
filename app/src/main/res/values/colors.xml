@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name = "BarYell">#FAA61A</color>
     <color name = "BarGrey">#A9A9A9</color>
+    <color name="darkyellow">#FAA61A</color>
 </resources>
