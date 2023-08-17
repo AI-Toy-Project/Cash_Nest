@@ -15,10 +15,30 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import com.example.cashnest.MainActivity
 
 
 class MainActivity2 : AppCompatActivity() {
-
+    companion object {
+        var one: Int = 0
+        var two: Int = 0
+        var three: Int = 0
+        var four: Int = 0
+        var five: Int = 0
+        var six: Int = 0
+        var seven: Int = 0
+        var eight: Int = 0
+        var nine: Int = 0
+        var ten: Int = 0
+        var eleven: Int = 0
+        var twelve: Int = 0
+        var thirteen: Int = 0
+        var fourteen: Int = 0
+        var fifteen: Int = 0
+        var sixteen: Int = 0
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
@@ -36,24 +56,24 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         val entries = ArrayList<BarEntry>() // y좌표는 데이터 값으로 정해짐 (임의로 표시)
-        entries.add(BarEntry(3.0f, 20.0f))
-        entries.add(BarEntry(3.43f, 70.0f))
-        entries.add(BarEntry(4.4f, 30.0f))
-        entries.add(BarEntry(4.83f, 90.0f))
-        entries.add(BarEntry(5.8f, 70.0f))
-        entries.add(BarEntry(6.23f, 30.0f))
-        entries.add(BarEntry(7.2f, 90.0f))
-        entries.add(BarEntry(7.63f, 40.0f))
+        entries.add(BarEntry(3.0f,one.toFloat()))
+        entries.add(BarEntry(3.43f, two.toFloat()))
+        entries.add(BarEntry(4.4f, three.toFloat()))
+        entries.add(BarEntry(4.83f, four.toFloat()))
+        entries.add(BarEntry(5.8f, five.toFloat()))
+        entries.add(BarEntry(6.23f, six.toFloat()))
+        entries.add(BarEntry(7.2f, seven.toFloat()))
+        entries.add(BarEntry(7.63f, eight.toFloat()))
 
         val entries2 = ArrayList<BarEntry>() // y좌표는 데이터 값으로 정해짐 (임의로 표시)
-        entries2.add(BarEntry(3.0f, 20.0f))
-        entries2.add(BarEntry(3.43f, 70.0f))
-        entries2.add(BarEntry(4.4f, 30.0f))
-        entries2.add(BarEntry(4.83f, 90.0f))
-        entries2.add(BarEntry(5.8f, 70.0f))
-        entries2.add(BarEntry(6.23f, 30.0f))
-        entries2.add(BarEntry(7.2f, 90.0f))
-        entries2.add(BarEntry(7.63f, 40.0f))
+        entries2.add(BarEntry(3.0f, nine.toFloat()))
+        entries2.add(BarEntry(3.43f, ten.toFloat()))
+        entries2.add(BarEntry(4.4f, eleven.toFloat()))
+        entries2.add(BarEntry(4.83f, twelve.toFloat()))
+        entries2.add(BarEntry(5.8f, thirteen.toFloat()))
+        entries2.add(BarEntry(6.23f, fourteen.toFloat()))
+        entries2.add(BarEntry(7.2f, fifteen.toFloat()))
+        entries2.add(BarEntry(7.63f, sixteen.toFloat()))
 
         barchart1.run {
             description.isEnabled = false
@@ -132,7 +152,7 @@ class MainActivity2 : AppCompatActivity() {
         set2.colors = colors
         val dataSet2: ArrayList<IBarDataSet> = ArrayList()
         dataSet2.add(set2)
-        val data2 = BarData(dataSet1)
+        val data2 = BarData(dataSet2)
         data2.barWidth = 0.35f
         barchart2.run {
             this.data = data2
