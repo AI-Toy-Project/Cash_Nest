@@ -18,7 +18,7 @@ import com.github.mikephil.charting.charts.BarChart
 class MainActivity : AppCompatActivity() {
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://10.0.2.2:5000/")
+        .baseUrl("http://172.30.1.68:5000")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
@@ -38,13 +38,12 @@ class MainActivity : AppCompatActivity() {
 
         val button2: ImageButton = findViewById(R.id.button2)
         button2.setOnClickListener {
+            val intent = Intent(this, MainActivity3::class.java)
             val call = apiService.getPrediction()
             call.enqueue(object : Callback<Map<String, Int>> {
                 override fun onResponse(call: Call<Map<String, Int>>, response: Response<Map<String, Int>>) {
                     if (response.isSuccessful) {
                         val predictionAmount = response.body()?.get("amount")
-
-                        val intent = Intent(this@MainActivity, MainActivity3::class.java)
                         intent.putExtra("predictionAmount", predictionAmount)
                         startActivity(intent)
                     }
