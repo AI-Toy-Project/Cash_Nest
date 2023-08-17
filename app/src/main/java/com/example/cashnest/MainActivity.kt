@@ -13,6 +13,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+import com.github.mikephil.charting.charts.BarChart
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +27,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val button1 : ImageButton = findViewById(R.id.button1)
+
+        button1.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity(intent)
+        }
+
 
         val button2: ImageButton = findViewById(R.id.button2)
         button2.setOnClickListener {
