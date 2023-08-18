@@ -19,7 +19,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import com.example.cashnest.MainActivity2
-
+//성공주석
 class MainActivity : AppCompatActivity() {
 
     private val retrofit = Retrofit.Builder()
