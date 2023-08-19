@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.AxisBase
@@ -21,34 +22,33 @@ import com.example.cashnest.MainActivity
 
 
 class MainActivity2 : AppCompatActivity() {
-    companion object {
-        var one: Int = 0
-        var two: Int = 0
-        var three: Int = 0
-        var four: Int = 0
-        var five: Int = 0
-        var six: Int = 0
-        var seven: Int = 0
-        var eight: Int = 0
-        var nine: Int = 0
-        var ten: Int = 0
-        var eleven: Int = 0
-        var twelve: Int = 0
-        var thirteen: Int = 0
-        var fourteen: Int = 0
-        var fifteen: Int = 0
-        var sixteen: Int = 0
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
+
+        var one = intent.getIntExtra("one", 0)
+        var two = intent.getIntExtra("two", 0)
+        var three = intent.getIntExtra("three", 0)
+        var four = intent.getIntExtra("four", 0)
+        var five = intent.getIntExtra("five", 0)
+        var six = intent.getIntExtra("six", 0)
+        var seven = intent.getIntExtra("seven", 0)
+        var eight = intent.getIntExtra("eight", 0)
+        var nine = intent.getIntExtra("nine", 0)
+        var ten = intent.getIntExtra("ten", 0)
+        var eleven = intent.getIntExtra("eleven", 0)
+        var twelve = intent.getIntExtra("twelve", 0)
+        var thirteen = intent.getIntExtra("thirteen", 0)
+        var fourteen = intent.getIntExtra("fourteen", 0)
+        var fifteen = intent.getIntExtra("fifteen", 0)
+        var sixteen = intent.getIntExtra("sixteen", 0)
 
         val barchart1: BarChart = findViewById(R.id.chart1)
         val barchart2: BarChart = findViewById(R.id.chart2)
         val left_button: Button = findViewById(R.id.button)
         val baryellow = ContextCompat.getColor(this, R.color.BarYell)
         val bargray = ContextCompat.getColor(this, R.color.BarGrey)
-        val colors = mutableListOf(baryellow, bargray, baryellow, bargray, baryellow, bargray, baryellow , bargray)
+        val colors = mutableListOf(baryellow, bargray, baryellow, bargray, baryellow, bargray, baryellow, bargray)
 
         left_button.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -81,6 +81,14 @@ class MainActivity2 : AppCompatActivity() {
             setPinchZoom(false)
             setDrawBarShadow(false)
             setDrawGridBackground(false)
+
+            var set = BarDataSet(entries, "DataSet1")
+            set.colors = colors
+            val dataSet1: ArrayList<IBarDataSet> = ArrayList()
+            dataSet1.add(set)
+            val data = BarData(dataSet1)
+            data.barWidth = 0.35f
+
             axisLeft.run {
                 axisMaximum = 101f
                 axisMinimum = 0f
@@ -101,15 +109,7 @@ class MainActivity2 : AppCompatActivity() {
             setTouchEnabled(false)
             legend.isEnabled = false;
             animateY(0)
-        }
 
-        var set = BarDataSet(entries, "DataSet1")
-        set.colors = colors
-        val dataSet1: ArrayList<IBarDataSet> = ArrayList()
-        dataSet1.add(set)
-        val data = BarData(dataSet1)
-        data.barWidth = 0.35f
-        barchart1.run {
             this.data = data
             setFitBars(true)
             invalidate()
@@ -122,6 +122,13 @@ class MainActivity2 : AppCompatActivity() {
             setDrawBarShadow(false)
             setDrawGridBackground(false)
 
+            var set2 = BarDataSet(entries2, "DataSet2")
+            set2.colors = colors
+            val dataSet2: ArrayList<IBarDataSet> = ArrayList()
+            dataSet2.add(set2)
+            val data2 = BarData(dataSet2)
+            data2.barWidth = 0.35f
+
             axisLeft.run {
                 axisMaximum = 101f
                 axisMinimum = 0f
@@ -136,7 +143,6 @@ class MainActivity2 : AppCompatActivity() {
                 setDrawAxisLine(false)
                 setDrawGridLines(false)
                 setDrawLabels(false)
-
             }
 
             axisRight.isEnabled = false
@@ -144,19 +150,9 @@ class MainActivity2 : AppCompatActivity() {
             legend.isEnabled = false;
             animateY(0)
 
-        }
-
-        var set2 = BarDataSet(entries2, "DataSet2")
-        set2.colors = colors
-        val dataSet2: ArrayList<IBarDataSet> = ArrayList()
-        dataSet2.add(set2)
-        val data2 = BarData(dataSet2)
-        data2.barWidth = 0.35f
-        barchart2.run {
             this.data = data2
             setFitBars(true)
             invalidate()
         }
-
     }
 }

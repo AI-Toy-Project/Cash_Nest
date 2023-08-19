@@ -5,6 +5,7 @@ from classification import classify_and_save
 from prediction import get_monthly_prediction
 from collections import OrderedDict
 
+import math
 
 app = Flask(__name__)
 
@@ -16,19 +17,40 @@ def predict():
     predicted_amounts = get_monthly_prediction(df_classified)
     
      # Adding dummy values
-    predicted_amounts += [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000]
-    max_value = max(predicted_amounts)
+    predicted_amounts += [10000, 20000, 30000, 40000, 5000, 60000, 70000, 80000]
+    # 로그 변환 (1을 더하는 이유는 0에 로그를 취할 수 없기 때문입니다.)
+    log_transformed = [math.log(amount + 1) for amount in predicted_amounts]
     
-    # Creating dictionary from predicted_amounts
-    percentages = [(amount / max_value) * 100 for amount in predicted_amounts]
+    # 로그로 변환된 값의 최대 및 최소값을 구합니다.
+    max_log_value = max(log_transformed)
+    min_log_value = min(log_transformed)
     
-    # Creating dictionary with the percentages
+    # 0-100 범위로 정규화
+    percentages = [(log_value - min_log_value) / (max_log_value - min_log_value) * 100 for log_value in log_transformed]
+    
+    # 결과를 딕셔너리로 만듭니다.
     categories_dict = {}
     for i, percentage in enumerate(percentages):
-        # Formatting with leading zeros
         categories_dict[f"category{str(i+1).zfill(2)}"] = int(percentage)
     
-    return jsonify(data=categories_dict)
+    return jsonify({
+        "category01": categories_dict["category01"],
+        "category02": categories_dict["category02"],
+        "category03": categories_dict["category03"],
+        "category04": categories_dict["category04"],
+        "category05": categories_dict["category05"],
+        "category06": categories_dict["category06"],
+        "category07": categories_dict["category07"],
+        "category08": categories_dict["category08"],
+        "category09": categories_dict["category09"],
+        "category10": categories_dict["category10"],
+        "category11": categories_dict["category11"],
+        "category12": categories_dict["category12"],
+        "category13": categories_dict["category13"],
+        "category14": categories_dict["category14"],
+        "category15": categories_dict["category15"],
+        "category16": categories_dict["category16"]
+    })
     
 @app.route('/amount', methods=['GET'])
 def amount():

@@ -44,7 +44,7 @@
         android:id="@+id/background"
         android:layout_width="420dp"
         android:layout_height="360dp"
-        android:layout_marginTop="376dp"
+        android:layout_marginTop="355dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665"
+        app:layout_constraintVertical_bias="0.65999997"
         app:srcCompat="@drawable/check_consumption_patterns"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -73,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintVertical_bias="0.81"
         app:srcCompat="@drawable/check_savings_account"
         tools:ignore="SpeakableTextPresentCheck" />
 

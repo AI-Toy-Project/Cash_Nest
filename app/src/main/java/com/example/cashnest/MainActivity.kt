@@ -41,56 +41,56 @@ class MainActivity : AppCompatActivity() {
         val button1: ImageButton = findViewById(R.id.button1)
 
         button1.setOnClickListener {
-            val intent2 = Intent(this, MainActivity2::class.java)
-            GlobalScope.launch(Dispatchers.IO) {
-                val response = apiService2.getPrediction()
-
-                if (response.isSuccessful) {
-                    val predictionData: PredictionData? = response.body()
-                    MainActivity2.one = predictionData?.category01 ?: 0
-                    MainActivity2.two = predictionData?.category02 ?: 0
-                    MainActivity2.three = predictionData?.category03 ?: 0
-                    MainActivity2.four = predictionData?.category04 ?: 0
-                    MainActivity2.five = predictionData?.category05 ?: 0
-                    MainActivity2.six = predictionData?.category06 ?: 0
-                    MainActivity2.seven = predictionData?.category07 ?: 0
-                    MainActivity2.eight = predictionData?.category08 ?: 0
-                    MainActivity2.nine = predictionData?.category09 ?: 0
-                    MainActivity2.ten = predictionData?.category10 ?: 0
-                    MainActivity2.eleven = predictionData?.category11 ?: 0
-                    MainActivity2.twelve = predictionData?.category12 ?: 0
-                    MainActivity2.thirteen = predictionData?.category13 ?: 0
-                    MainActivity2.fourteen = predictionData?.category14 ?: 0
-                    MainActivity2.fifteen = predictionData?.category15 ?: 0
-                    MainActivity2.sixteen = predictionData?.category16 ?: 0
-                    startActivity(intent2)
-                } else {
-
+            val intent = Intent(this, MainActivity2::class.java)
+            GlobalScope.launch(Dispatchers.Main) {
+                try {
+                    val response = apiService2.getPrediction()
+                    if (response.isSuccessful) {
+                        val predictionData: PredictionData? = response.body()
+                        intent.putExtra("one", predictionData?.category01 ?: 0)
+                        intent.putExtra("two", predictionData?.category02 ?: 0)
+                        intent.putExtra("three", predictionData?.category03 ?: 0)
+                        intent.putExtra("four", predictionData?.category04 ?: 0)
+                        intent.putExtra("five", predictionData?.category05 ?: 0)
+                        intent.putExtra("six", predictionData?.category06 ?: 0)
+                        intent.putExtra("seven", predictionData?.category07 ?: 0)
+                        intent.putExtra("eight", predictionData?.category08 ?: 0)
+                        intent.putExtra("nine", predictionData?.category09 ?: 0)
+                        intent.putExtra("ten", predictionData?.category10 ?: 0)
+                        intent.putExtra("eleven", predictionData?.category11 ?: 0)
+                        intent.putExtra("twelve", predictionData?.category12 ?: 0)
+                        intent.putExtra("thirteen", predictionData?.category13 ?: 0)
+                        intent.putExtra("fourteen", predictionData?.category14 ?: 0)
+                        intent.putExtra("fifteen", predictionData?.category15 ?: 0)
+                        intent.putExtra("sixteen", predictionData?.category16 ?: 0)
+                        startActivity(intent)
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(this@MainActivity, "Error: ${e.message}", Toast.LENGTH_LONG).show()
                 }
             }
+        }
 
-            val button2: ImageButton = findViewById(R.id.button2)
-            button2.setOnClickListener {
-                val intent = Intent(this, MainActivity3::class.java)
-                val call = apiService.getPrediction()
-                call.enqueue(object : Callback<Map<String, Int>> {
-                    override fun onResponse(
-                        call: Call<Map<String, Int>>,
-                        response: Response<Map<String, Int>>
-                    ) {
-                        if (response.isSuccessful) {
-                            val predictionAmount = response.body()?.get("amount")
-                            intent.putExtra("predictionAmount", predictionAmount)
-                            startActivity(intent)
-                        }
+        val button2: ImageButton = findViewById(R.id.button2)
+        button2.setOnClickListener {
+            val intent = Intent(this, MainActivity3::class.java)
+            val call = apiService.getPrediction()
+            call.enqueue(object : Callback<Map<String, Int>> {
+                override fun onResponse(
+                    call: Call<Map<String, Int>>,
+                    response: Response<Map<String, Int>>
+                ) {
+                    if (response.isSuccessful) {
+                        val predictionAmount = response.body()?.get("amount")
+                        intent.putExtra("predictionAmount", predictionAmount)
+                        startActivity(intent)
                     }
+                }
 
-                    override fun onFailure(call: Call<Map<String, Int>>, t: Throwable) {
-                        Toast.makeText(this@MainActivity, "Error: ${t.message}", Toast.LENGTH_LONG)
-                            .show()
-                    }
-                })
-            }
+                override fun onFailure(call: Call<Map<String, Int>>, t: Throwable) {
+                    Toast.makeText(this@MainActivity, "Error: ${t.message}", Toast.LENGTH_LONG).show()
+                }
+            })
         }
     }
 
