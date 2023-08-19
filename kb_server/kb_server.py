@@ -16,10 +16,14 @@ def predict():
 
     predicted_amounts = get_monthly_prediction(df_classified)
     
-     # Adding dummy values
-    predicted_amounts += [10000, 20000, 30000, 40000, 5000, 60000, 70000, 80000]
+    # 더미 값을 선언합니다.
+    dummy_values = [80000, 40000, 90000, 10000, 50000, 15000, 10000, 70000]
+    
+    # 더미 값과 predicted_amounts 값을 교차로 합칩니다.
+    combined_amounts = [val for pair in zip(dummy_values, predicted_amounts) for val in pair]
+    
     # 로그 변환 (1을 더하는 이유는 0에 로그를 취할 수 없기 때문입니다.)
-    log_transformed = [math.log(amount + 1) for amount in predicted_amounts]
+    log_transformed = [math.log(amount + 1) for amount in combined_amounts]
     
     # 로그로 변환된 값의 최대 및 최소값을 구합니다.
     max_log_value = max(log_transformed)
