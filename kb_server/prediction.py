@@ -1,4 +1,3 @@
-"""
 import keras
 from keras.layers import TimeDistributed
 import numpy as np
@@ -17,12 +16,10 @@ from tensorflow.keras.optimizers import RMSprop
 from tensorflow.keras.callbacks import ReduceLROnPlateau
 from keras import models
 from keras.models import load_model
-"""
+# from keras.optimizers import rmsprop_v2
+from tensorflow.keras.optimizers import Adam
+from xgboost import XGBRegressor
 
-import numpy as np
-import pandas as pd
-from sklearn.preprocessing import MinMaxScaler 
-from keras.models import load_model
 
 def load_and_preprocess_data(df):
     df.columns = ['거래일시', '정상구분', '가맹점명', '금액', '카테고리']
@@ -116,12 +113,20 @@ def predict_next_month_consumption(df, df_scaled, model, scaler, seq_length=92):
     
     return monthly_predicted
 
+def custom_optimizer():
+    return RMSprop(lr=0.001)
+
+def custom_adam_optimizer():
+    return Adam(learning_rate=0.001)
 
 def get_monthly_prediction(df):
     df = load_and_preprocess_data(df)
     df = handle_cancelled_rows(df)
     df_scaled, scaler = normalize_data(df)
     X, y = prepare_training_data(df_scaled)
-    model = load_model('lstm_first.h5')
+    model = load_model('./lstm_second.h5', compile=False)
+    #model = XGBRegressor(n_estimators=100, learning_rate=0.001)
+    #model.fit(X, y)
+    
     monthly_predicted = predict_next_month_consumption(df, df_scaled, model, scaler, seq_length=92)
     return monthly_predicted

@@ -43,15 +43,15 @@ class MainActivity : AppCompatActivity() {
 
                 if (response.isSuccessful) {
                     val predictionData: PredictionData? = response.body()
-                    MainActivity2.one = predictionData?.category1 ?: 0
-                    MainActivity2.two = predictionData?.category2 ?: 0
-                    MainActivity2.three = predictionData?.category3 ?: 0
-                    MainActivity2.four = predictionData?.category4 ?: 0
-                    MainActivity2.five = predictionData?.category5 ?: 0
-                    MainActivity2.six = predictionData?.category6 ?: 0
-                    MainActivity2.seven = predictionData?.category7 ?: 0
-                    MainActivity2.eight = predictionData?.category8 ?: 0
-                    MainActivity2.nine = predictionData?.category9 ?: 0
+                    MainActivity2.one = predictionData?.category01 ?: 0
+                    MainActivity2.two = predictionData?.category02 ?: 0
+                    MainActivity2.three = predictionData?.category03 ?: 0
+                    MainActivity2.four = predictionData?.category04 ?: 0
+                    MainActivity2.five = predictionData?.category05 ?: 0
+                    MainActivity2.six = predictionData?.category06 ?: 0
+                    MainActivity2.seven = predictionData?.category07 ?: 0
+                    MainActivity2.eight = predictionData?.category08 ?: 0
+                    MainActivity2.nine = predictionData?.category09 ?: 0
                     MainActivity2.ten = predictionData?.category10 ?: 0
                     MainActivity2.eleven = predictionData?.category11 ?: 0
                     MainActivity2.twelve = predictionData?.category12 ?: 0

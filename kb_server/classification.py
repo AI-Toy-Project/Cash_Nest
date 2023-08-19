@@ -155,6 +155,3 @@ def classify_and_save(input_path):
     df.columns = ['이용일', '정상구분', '가맹점명', '금액']
     df['카테고리'] = df['가맹점명'].apply(predictor.predict)
     return df
-
-if __name__ == "__main__":
-    classify_and_save()
