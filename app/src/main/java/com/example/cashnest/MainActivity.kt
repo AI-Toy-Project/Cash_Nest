@@ -19,12 +19,16 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import com.example.cashnest.MainActivity2
+import okhttp3.OkHttpClient
+import java.util.concurrent.TimeUnit
+
 //성공주석
 class MainActivity : AppCompatActivity() {
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://172.30.1.46:5000")
+        .baseUrl("http://61.39.51.225:5000")
         .addConverterFactory(GsonConverterFactory.create())
+        .client(createOkHttpClient())
         .build()
 
     private val apiService = retrofit.create(ApiService::class.java)
@@ -88,5 +92,13 @@ class MainActivity : AppCompatActivity() {
                 })
             }
         }
+    }
+
+    private fun createOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .connectTimeout(8, TimeUnit.MINUTES)
+            .readTimeout(8, TimeUnit.MINUTES)
+            .writeTimeout(8, TimeUnit.MINUTES)
+            .build()
     }
 }

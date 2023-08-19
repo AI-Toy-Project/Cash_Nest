@@ -88,7 +88,6 @@ class MainActivity2 : AppCompatActivity() {
                 setDrawLabels(false)
                 setDrawGridLines(false)
                 setDrawAxisLine(false)
-
             }
 
             xAxis.run {
@@ -101,8 +100,7 @@ class MainActivity2 : AppCompatActivity() {
             axisRight.isEnabled = false
             setTouchEnabled(false)
             legend.isEnabled = false;
-            animateY(1000)
-
+            animateY(0)
         }
 
         var set = BarDataSet(entries, "DataSet1")
@@ -144,7 +142,7 @@ class MainActivity2 : AppCompatActivity() {
             axisRight.isEnabled = false
             setTouchEnabled(false)
             legend.isEnabled = false;
-            animateY(1000)
+            animateY(0)
 
         }
 
@@ -162,6 +160,3 @@ class MainActivity2 : AppCompatActivity() {
 
     }
 }
-
-
-
