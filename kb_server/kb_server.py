@@ -3,6 +3,7 @@ from flask_restful import Resource, Api
 
 from classification import classify_and_save
 from prediction import get_monthly_prediction
+from prediction2 import get_monthly_prediction2
 from collections import OrderedDict
 
 import math
@@ -13,14 +14,14 @@ app = Flask(__name__)
 def predict():
     
     df_classified = classify_and_save(input_path='./최종데이터.xlsx')
-
     predicted_amounts = get_monthly_prediction(df_classified)
     
-    # 더미 값을 선언합니다.
-    dummy_values = [80000, 40000, 90000, 10000, 50000, 15000, 10000, 70000]
+    df_classified2 = classify_and_save(input_path='./현재소비데이터.xlsx')
+    predicted_amounts2 = get_monthly_prediction2(df_classified2)
     
-    # 더미 값과 predicted_amounts 값을 교차로 합칩니다.
-    combined_amounts = [val for pair in zip(dummy_values, predicted_amounts) for val in pair]
+    
+    # predicted_amounts 값을 교차로 합칩니다.
+    combined_amounts = [val for pair in zip(predicted_amounts2, predicted_amounts) for val in pair]
     
     # 로그 변환 (1을 더하는 이유는 0에 로그를 취할 수 없기 때문입니다.)
     log_transformed = [math.log(amount + 1) for amount in combined_amounts]
@@ -32,7 +33,6 @@ def predict():
     # 0-100 범위로 정규화
     percentages = [(log_value - min_log_value) / (max_log_value - min_log_value) * 100 for log_value in log_transformed]
     
-    # 결과를 딕셔너리로 만듭니다.
     categories_dict = {}
     for i, percentage in enumerate(percentages):
         categories_dict[f"category{str(i+1).zfill(2)}"] = int(percentage)
