@@ -42,8 +42,15 @@ The 5th Future Finance A.I. Challenge _ KB 국민은행
 
 <br>
 
-## ⚙️ 기술 스택
+## ⚙️ 기술 설명
 
+![004](https://github.com/AI-Toy-Project/Cash_Nest/assets/132427506/9c96cb58-6454-4fb9-a69f-7f965d546de2)
 
+![005](https://github.com/AI-Toy-Project/Cash_Nest/assets/132427506/54d32d1f-59f6-4e3a-910f-4af6b69a7676)
 
+### 📍KoBERT Model
+* 한국어 텍스트 데이터의 시퀀스 패턴을 학습한 후, 결재 가맹점명을 기반으로 각 내역의 카테고리 분류를 수행하기 위해 사용
+
+### 📍LSTM Model
+* 과거의 시퀀스 패턴을 학습한 후, 최근 3개월 데이터를 기반으로 다음달 소비 금액을 카테고리별로 예측
 
