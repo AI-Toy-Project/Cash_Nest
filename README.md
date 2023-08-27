@@ -31,11 +31,17 @@ The 5th Future Finance A.I. Challenge _ KB 국민은행
 + 소비 패턴 확인하기
   카테고리 별로 저번달에 AI가 예측한 이번달 소비량(회색) 과 현재 자신의 소비량(노랑색) 을 나타낸다.
   예측액보다 현재 소비액이 적은 만큼 예상 적금금액이 불어난다.
+  
+![제목-없는-동영상-Clipchamp로-제작](https://github.com/AI-Toy-Project/Cash_Nest/assets/132427506/d390e86a-73cd-42f3-a971-85b8fccf4378)
 
 + 적금 통장 확인하기
   우리의 서비스를 통해 저축한 적금 통장을 보여준다.
   최종적으로 한달 소비액이 예측액보다 적으면 성취도장을 찍어준다. 도장판은 1년마다 바뀐다.
+  
+![제목-없는-동영상-Clipchamp로-제작-_1_](https://github.com/AI-Toy-Project/Cash_Nest/assets/132427506/ee8fdf45-b317-42f8-973e-a69d34bac697)
+
 <br>
+
 ## ⚙️ 기술 스택
 
 
