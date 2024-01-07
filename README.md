@@ -7,7 +7,7 @@ The 5th Future Finance A.I. Challenge _ KB 국민은행
 ## 👩🏻‍💻 팀구성
 |김영진|김수현|방기연|
 |:---:|:---:|:---:|
-|<img src="" width="150">|<img src="https://github.com/AI-Toy-Project/Cash_Nest/assets/92291198/d96bc627-8dca-4437-897a-029de690d048" width="150">|<img src="https://github.com/AI-Toy-Project/Cash_Nest/assets/132427506/5019224d-23b9-45e0-946a-5e41420262c4" width="150">|
+|<img src="https://github.com/AI-Toy-Project/Cash_Nest/assets/141807721/090d51e9-e2f8-4bb4-aa5d-4c5aed7bc821" width="150">|<img src="https://github.com/AI-Toy-Project/Cash_Nest/assets/92291198/d96bc627-8dca-4437-897a-029de690d048" width="150">|<img src="https://github.com/AI-Toy-Project/Cash_Nest/assets/132427506/5019224d-23b9-45e0-946a-5e41420262c4" width="150">|
 |[@yxxngjxn](https://github.com/yxxngjxn)|[@susooo](https://github.com/susooo)|[@PangKiYeon](https://github.com/PangKiYeon)|
 <br>
 
